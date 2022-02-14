@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Add_ModifyProdFormController">
+   <children>
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="579.0" prefWidth="382.0" spacing="10.0">
+         <children>
+            <HBox prefHeight="40.0" prefWidth="400.0" spacing="20.0">
+               <children>
+                  <Label fx:id="AddModifyProdLabel" text="Add Product">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="60.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="400.0" spacing="20.0">
+               <children>
+                  <Label text="ID">
+                     <HBox.margin>
+                        <Insets right="40.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="ProdIdTxtFld" disable="true" editable="false" prefHeight="25.0" prefWidth="130.0" promptText="Auto Gen - Disabled" />
+               </children>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="400.0">
+               <children>
+                  <Label text="Name">
+                     <HBox.margin>
+                        <Insets right="40.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="ProdNameTxtFld" prefHeight="25.0" prefWidth="130.0" />
+               </children>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="400.0" spacing="15.0">
+               <children>
+                  <Label text="Inv">
+                     <HBox.margin>
+                        <Insets right="40.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="ProdInvTxtFld" prefHeight="25.0" prefWidth="130.0" />
+               </children>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="400.0">
+               <children>
+                  <Label text="Price">
+                     <HBox.margin>
+                        <Insets right="40.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="ProdPriceTxtFld" prefHeight="25.0" prefWidth="130.0">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="400.0" spacing="20.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="28.0" text="Max">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="ProdMaxTxtFld" prefHeight="25.0" prefWidth="130.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+                  <Label prefHeight="17.0" prefWidth="26.0" text="Min" />
+                  <TextField fx:id="ProdMinTxtFld" prefHeight="25.0" prefWidth="75.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+         </padding>
+      </VBox>
+      <VBox alignment="CENTER_RIGHT" layoutX="403.0" layoutY="15.0" prefHeight="600.0" prefWidth="500.0" spacing="10.0">
+         <children>
+            <HBox alignment="TOP_RIGHT" prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="SearchPartTxtFld" onAction="#onActionSearchPart" prefHeight="27.0" prefWidth="240.0" promptText="Search by Part ID or Name">
+                     <padding>
+                        <Insets bottom="10.0" />
+                     </padding>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </HBox>
+            <TableView fx:id="PartTblView" prefHeight="194.0" prefWidth="356.0">
+               <columns>
+                  <TableColumn fx:id="PartIdCol" editable="false" maxWidth="300.0" prefWidth="75.0" text="Part ID" />
+                  <TableColumn fx:id="PartNameCol" prefWidth="150.0" text="Part Name" />
+                  <TableColumn fx:id="PartStockCol" maxWidth="300.0" prefWidth="115.0" text="Inventory Level" />
+                  <TableColumn fx:id="PartPriceCol" maxWidth="500.0" prefWidth="115.0" text="Price/ Cost per Unit" />
+               </columns>
+            </TableView>
+            <Button fx:id="AddAssocPartBtn" mnemonicParsing="false" onAction="#onActionAddAssocPart" text="Add" />
+            <TableView fx:id="AssocPartTblView" layoutX="10.0" layoutY="52.0" prefHeight="219.0" prefWidth="316.0">
+               <columns>
+                  <TableColumn fx:id="PartIdCol2" editable="false" maxWidth="300.0" prefWidth="75.0" text="Part ID" />
+                  <TableColumn fx:id="PartNameCol2" prefWidth="150.0" text="Part Name" />
+                  <TableColumn fx:id="PartStockCol2" maxWidth="300.0" prefWidth="115.0" text="Inventory Level" />
+                  <TableColumn fx:id="PartPriceCol2" maxWidth="500.0" prefWidth="115.0" text="Price/ Cost per Unit" />
+               </columns>
+            </TableView>
+            <Button fx:id="RemoveAssocPartBtn" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#onActionDeleteAssocPart" text="Remove Associated Part" />
+            <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Button fx:id="SaveProdBtn" mnemonicParsing="false" onAction="#onActionSaveProd" text="Save">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="CancelProdBtn" mnemonicParsing="false" onAction="#onActionDisplayMainForm" text="Cancel">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
